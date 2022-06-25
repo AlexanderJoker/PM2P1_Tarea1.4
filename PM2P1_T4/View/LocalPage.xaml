@@ -5,10 +5,10 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Frame  BackgroundColor="#687FC7" Padding="5">
-                <Label Text="Lista de las fotos tomadas y almacenadas en local" 
+            <Frame  BackgroundColor="#gray" Padding="5">
+                <Label Text="Lista de imagenes" 
                        HorizontalOptions="CenterAndExpand"
-                       TextColor="White"
+                       TextColor="black"
                        />
             </Frame>
             

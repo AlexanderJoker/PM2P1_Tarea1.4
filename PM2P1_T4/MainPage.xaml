@@ -19,10 +19,10 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Frame  BackgroundColor="#687FC7" Padding="5">
+            <Frame  BackgroundColor="DarkGreen" Padding="5">
                 <Label Text="Lista de las fotos tomadas y almacenadas en la base de datos" 
                        HorizontalOptions="CenterAndExpand"
-                       TextColor="White"
+                       TextColor="Black"
                        />
             </Frame>
 
@@ -52,9 +52,9 @@
                                            />
 
                                         <StackLayout Grid.Column="1">
-                                            <Label Text="{Binding IdText}" />
-                                            <Label Text="{Binding NombreText}" />
-                                            <Label Text="{Binding DescText}"/>
+                                            <Label Text="{Binding IdText}" TextColor="Black"/>
+                                            <Label Text="{Binding NombreText}" TextColor="Black"/>
+                                            <Label Text="{Binding DescText}" TextColor="Black"/>
                                         </StackLayout>
 
                                     </Grid>

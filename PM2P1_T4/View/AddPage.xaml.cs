@@ -32,7 +32,7 @@ namespace PM2P1_T4.View
                 FileFoto = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
                     SaveToAlbum = true,
-                    Name = Nombre.Text,
+                    Name = Nombres.Text,
                     Directory = "MisFotos",
                     CompressionQuality = 20,
                     CustomPhotoSize = 20
@@ -64,7 +64,7 @@ namespace PM2P1_T4.View
                 return;
             }
 
-            if (string.IsNullOrEmpty(Nombre.Text.Trim()) || string.IsNullOrEmpty(Descripcion.Text.Trim()))
+            if (string.IsNullOrEmpty(Nombres.Text.Trim()) || string.IsNullOrEmpty(Descripciones.Text.Trim()))
             {
                 await DisplayAlert("Error", "Debe llenar todos los campos", "OK");
                 return;
@@ -72,8 +72,8 @@ namespace PM2P1_T4.View
 
             Imagen imagen = new Imagen()
             {
-                nombre = Nombre.Text,
-                descripcion = Descripcion.Text,
+                nombre = Nombres.Text,
+                descripcion = Descripciones.Text,
                 foto = ConvertImageToByteArray()
 
             };
@@ -129,8 +129,8 @@ namespace PM2P1_T4.View
 
         private void limpiar()
         {
-            Nombre.Text = "";
-            Descripcion.Text = "";
+            Nombres.Text = "";
+            Descripciones.Text = "";
             Foto.Source = null;
         }
 

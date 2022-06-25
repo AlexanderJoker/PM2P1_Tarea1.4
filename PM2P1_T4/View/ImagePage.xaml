@@ -14,10 +14,10 @@
         
         <StackLayout>
 
-            <Frame  BackgroundColor="#687FC7" Padding="5">
+            <Frame  BackgroundColor="Green" Padding="5">
                 <Label Text="Imagen seleccionada: " 
                        HorizontalOptions="CenterAndExpand"
-                       TextColor="White"
+                       TextColor="Black"
                        />
             </Frame>
             
