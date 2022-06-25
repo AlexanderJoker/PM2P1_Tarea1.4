@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2P1_T4.View.AddPage">
+
+    <ScrollView>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Frame Grid.Row="0" Grid.Column="1" HeightRequest="100" WidthRequest="100" Padding="0" Margin="0,20,0,0">
+                <Image x:Name="Foto" 
+                       Margin="0" 
+                       BackgroundColor="Gray" 
+                       WidthRequest="100" 
+                       HeightRequest="100"
+                       />
+            </Frame>
+
+            <StackLayout Grid.Row="1" Grid.Column="1">
+                <Label Text="Nombre:" FontSize="20"/>
+                <Entry x:Name="Nombre"  Placeholder="Ejemplo: imagen_1" Keyboard="Text" />
+
+                <Label Text="Descripcion:" FontSize="20"/>
+                <Entry x:Name="Descripcion" Placeholder="Ejemplo: Imagen de mi casa" Keyboard="Text"/>
+
+
+                <StackLayout Orientation="Horizontal"  Margin="0,30,0,0">
+                    <Button x:Name="btnTomarFoto" Text="Tomar Foto" HorizontalOptions="FillAndExpand" Clicked="btnTomarFoto_Clicked"/>
+                    <Button x:Name="btnGuardar" Text="A SQLite" HorizontalOptions="FillAndExpand" Clicked="btnGuardar_Clicked" />
+                </StackLayout>
+                
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+    
+    
+</ContentPage>

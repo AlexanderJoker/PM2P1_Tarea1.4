@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Convertidor="clr-namespace:PM2P1_T4.Convertidor"
+             x:Class="PM2P1_T4.View.ImagePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        
+        <StackLayout>
+
+            <Frame  BackgroundColor="#687FC7" Padding="5">
+                <Label Text="Imagen seleccionada: " 
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="White"
+                       />
+            </Frame>
+            
+            <Image Source="{Binding foto, Converter={StaticResource ByteToImage}}" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Fill"
+                   />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
