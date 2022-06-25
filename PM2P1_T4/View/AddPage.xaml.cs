@@ -18,7 +18,7 @@ namespace PM2P1_T4.View
     public partial class AddPage : ContentPage
     {
 
-        MediaFile FileFoto = null;
+        MediaFile FileImage = null;
 
         public AddPage()
         {
@@ -29,7 +29,7 @@ namespace PM2P1_T4.View
         {
             try
             {
-                FileFoto = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                FileImage = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
                     SaveToAlbum = true,
                     Name = Nombres.Text,
@@ -38,7 +38,7 @@ namespace PM2P1_T4.View
                     CustomPhotoSize = 20
                 });
 
-                await DisplayAlert("Direcctorio", FileFoto.Path, "OK");
+                await DisplayAlert("Direcctorio", FileImage.Path, "OK");
             }
             catch (Exception ex)
             {
@@ -47,18 +47,18 @@ namespace PM2P1_T4.View
 
             
 
-            if (FileFoto != null)
+            if (FileImage != null)
             {
                 Foto.Source = ImageSource.FromStream(() => {
 
-                    return FileFoto.GetStream();
+                    return FileImage.GetStream();
                 });
             }
         }
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
         {
-            if (FileFoto == null)
+            if (FileImage == null)
             {
                 await DisplayAlert("Error", "No se a tomado una fotografia", "OK");
                 return;
@@ -96,11 +96,11 @@ namespace PM2P1_T4.View
 
         private Byte[] ConvertImageToByteArray()
         {
-            if (FileFoto != null)
+            if (FileImage != null)
             {
                 using (MemoryStream memory = new MemoryStream())
                 {
-                    Stream stream = FileFoto.GetStream();
+                    Stream stream = FileImage.GetStream();
 
                     stream.CopyTo(memory);
 

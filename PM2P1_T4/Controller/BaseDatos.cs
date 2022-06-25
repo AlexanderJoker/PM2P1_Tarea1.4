@@ -9,13 +9,13 @@ namespace PM2P1_T4.Controller
 {
     public class BaseDatos
     {
-        readonly SQLiteAsyncConnection dbase;
+        readonly SQLiteAsyncConnection database;
 
         public BaseDatos(string path)
         {
-            dbase = new SQLiteAsyncConnection(path);
+            database = new SQLiteAsyncConnection(path);
 
-            dbase.CreateTableAsync<Imagen>();
+            database.CreateTableAsync<Imagen>();
         }
 
         #region OperacionesImagen
@@ -24,23 +24,23 @@ namespace PM2P1_T4.Controller
         {
             if (img.id != 0)
             {
-                return dbase.UpdateAsync(img);
+                return database.UpdateAsync(img);
             }
             else
             {
-                return dbase.InsertAsync(img);
+                return database.InsertAsync(img);
             }
         }
 
         //Metodos CRUD - READ
         public Task<List<Imagen>> getListImagen()
         {
-            return dbase.Table<Imagen>().ToListAsync();
+            return database.Table<Imagen>().ToListAsync();
         }
 
         public Task<Imagen> getImagen(int id)
         {
-            return dbase.Table<Imagen>()
+            return database.Table<Imagen>()
                 .Where(i => i.id == id)
                 .FirstOrDefaultAsync();
         }
@@ -48,7 +48,7 @@ namespace PM2P1_T4.Controller
         //Metodos CRUD - DELETE
         public Task<int> deleteImagen(Imagen img)
         {
-            return dbase.DeleteAsync(img);
+            return database.DeleteAsync(img);
         }
 
         #endregion OperacionesImagen

@@ -9,65 +9,49 @@
             <Convertidor:ByteArrayToImage x:Key="ByteToImage"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="toolMenu1" Text="Agregar" Order="Primary" Priority="1" Clicked="toolMenu1_Clicked" />
         <ToolbarItem x:Name="toolMenu2" Text="Lista en Local" Order="Primary" Priority="0" Clicked="toolMenu2_Clicked" />
     </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
         <StackLayout>
-
             <Frame  BackgroundColor="DarkGreen" Padding="5">
                 <Label Text="Lista de las fotos tomadas y almacenadas en la base de datos" 
                        HorizontalOptions="CenterAndExpand"
                        TextColor="Black"
                        />
             </Frame>
-
-
-
             <ListView x:Name="listImage" HasUnevenRows="True" ItemTapped="listImage_ItemTapped">
-
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-
                                 <Frame>
-
                                     <Grid>
-
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="200" />
                                         </Grid.ColumnDefinitions>
-
                                         <Image Source="{Binding foto, Converter={StaticResource ByteToImage}}" 
                                            WidthRequest="100" 
                                            HeightRequest="100"
                                            HorizontalOptions="StartAndExpand"
                                            Grid.Column="0"
                                            />
-
                                         <StackLayout Grid.Column="1">
                                             <Label Text="{Binding IdText}" TextColor="Black"/>
                                             <Label Text="{Binding NombreText}" TextColor="Black"/>
                                             <Label Text="{Binding DescText}" TextColor="Black"/>
                                         </StackLayout>
-
                                     </Grid>
-
-
                                 </Frame>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                
+
             </ListView>
-            
+
         </StackLayout>
     </ContentPage.Content>
 
